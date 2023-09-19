@@ -14,7 +14,7 @@ class Zookeeper(db.Model):
     name = db.Column(db.String(255))
     birthday = db.Column(db.String(255))
 
-    # Define the back reference to animals
+   
     animals = db.relationship('Animal', back_populates='zookeeper')
 
 
@@ -25,7 +25,7 @@ class Enclosure(db.Model):
     environment = db.Column(db.String(255))
     open_to_visitors = db.Column(db.Boolean)
 
-    # Define a relationship to the Animal model
+    
     animals = db.relationship('Animal', back_populates='enclosure')
 
 class Animal(db.Model):
@@ -36,7 +36,6 @@ class Animal(db.Model):
     species = db.Column(db.String(255))
     zookeeper_id = db.Column(db.Integer, db.ForeignKey('zookeepers.id'))  # Define the foreign key
 
-    # Define the relationships
     zookeeper = db.relationship('Zookeeper', back_populates='animals')
     enclosure_id = db.Column(db.Integer, db.ForeignKey('enclosures.id'))
 
