@@ -3,12 +3,9 @@
 from random import choice as rc
 
 from faker import Faker
-
-from app import app
 from models import db, Zookeeper, Animal, Enclosure
-
+from app import db
 fake = Faker()
-
 with app.app_context():
 
     Animal.query.delete()
@@ -47,4 +44,3 @@ with app.app_context():
 
     db.session.add_all(animals)
     db.session.commit()
-

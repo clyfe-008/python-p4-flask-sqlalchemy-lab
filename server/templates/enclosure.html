@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Enclosure Details</title>
+</head>
+<body>
+    <h1>Enclosure Details</h1>
+    <ul>
+        <li>Environment: {{ enclosure.environment }}</li>
+        <li>Open to Visitors: {% if enclosure.open_to_visitors %}Yes{% else %}No{% endif %}</li>
+        <li>Animals:
+            <ul>
+                {% for animal in enclosure.animals %}
+                    <li>{{ animal.name }} ({{ animal.species }})</li>
+                {% endfor %}
+            </ul>
+        </li>
+    </ul>
+</body>
+</html>

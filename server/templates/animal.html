@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Animal Details</title>
+</head>
+<body>
+    <h1>Animal Details</h1>
+    <ul>
+        <li>Name: {{ animal.name }}</li>
+        <li>Species: {{ animal.species }}</li>
+        {% if animal.zookeeper %}
+            <li>Zookeeper: {{ animal.zookeeper.name }} (Birthday: {{ animal.zookeeper.birthday }})</li>
+        {% else %}
+            <li>No assigned zookeeper</li>
+        {% endif %}
+    </ul>
+</body>
+</html>
